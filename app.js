@@ -84,12 +84,20 @@ $().ready(()=> {
             }
         },
         submitHandler: function(form) {
-            form.submit()
+            // submits the form to "/" if there is no errors 
+            // it's send to "/" is because on the form it says action="/"
+            // form.submit()
+            formID.addClass("hide")
+            $('#thank-you').removeClass("hide")
         }
     })
 
 })
 
+$('#continueBtn').on('click', ()=> {
+    location.href = 'https://github.com/000xzhou/interactive-card-details-form'
+})
 
 // https://html.form.guide/jquery/validation-using-jquery-examples/
 // jQuery got their own validation
+
