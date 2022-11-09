@@ -11,6 +11,7 @@ $().ready(()=> {
     const yearImageNumber = $('.card-image-year')
     const cvcNumber = $('#cvc')
     const cvcImageNumber = $('.card-image-cvc')
+    const formSection = $('.formSection')
     // Replace the input on the card to the input typed
     cardholderName.on('input', ()=> {
         var name = cardholderName.val()
@@ -84,22 +85,22 @@ $().ready(()=> {
             }
         },
         submitHandler: function(form) {
-            // submits the form to "/" if there is no errors 
-            // it's send to "/" is because on the form it says action="/"
-            // form.submit()
-            formID.addClass("hide")
-            $('#thank-you').removeClass("hide")
+            // round around way because i don't know servers much
+            formSection.addClass("hide")
+            $('.thanksClass').removeClass("hide")
             $('#continueBtn').on('click', ()=> {
-                // location.href = 'https://github.com/000xzhou/interactive-card-details-form'
-                // They want me to reset the form after clicking this button... so yea.. let it submit!
                 form.submit()
             })
+            
+            // 
         }
     })
 
 })
 
-
+// 
+// 
+// 
 
 // https://html.form.guide/jquery/validation-using-jquery-examples/
 // jQuery got their own validation
