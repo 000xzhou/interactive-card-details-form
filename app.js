@@ -89,14 +89,17 @@ $().ready(()=> {
             // form.submit()
             formID.addClass("hide")
             $('#thank-you').removeClass("hide")
+            $('#continueBtn').on('click', ()=> {
+                // location.href = 'https://github.com/000xzhou/interactive-card-details-form'
+                // They want me to reset the form after clicking this button... so yea.. let it submit!
+                form.submit()
+            })
         }
     })
 
 })
 
-$('#continueBtn').on('click', ()=> {
-    location.href = 'https://github.com/000xzhou/interactive-card-details-form'
-})
+
 
 // https://html.form.guide/jquery/validation-using-jquery-examples/
 // jQuery got their own validation

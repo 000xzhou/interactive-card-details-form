@@ -1,30 +1,335 @@
 /* Mobile: 375px
-Desktop: 1440px
+Desktop: 1440px */
 
-Primary
-Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
-Red (input errors): hsl(0, 100%, 66%)
+:root {
+    --clr-primary-red: hsl(0, 100%, 66%);
+    --clr-primary-gradient: linear-gradient(90deg, hsl(249, 99%, 64%) 0%, hsl(278, 93%, 30%) 100%);
+    --clr-neutral-white: hsl(0, 0%, 100%);
+    --clr-neutral-lightGrayishViolet: hsl(270, 3%, 87%);
+    --clr-neutral-darkGrayishViolet: hsl(279, 6%, 55%);
+    --clr-neutral-veryDarkViolet: hsl(278, 68%, 11%);
 
-Neutral
-White: hsl(0, 0%, 100%)
-Light grayish violet: hsl(270, 3%, 87%)
-Dark grayish violet: hsl(279, 6%, 55%)
-Very dark violet: hsl(278, 68%, 11%)
+    --fs-18: 1.125rem;
+    --ff-primary: 'Space Grotesk', sans-serif;
 
-Body Copy
-Font size: 18px
+    --fw-500: 500;
+}
 
-Font
-Family: Space Grotesk
+.uppercase {
+    text-transform: uppercase;
+}
+.text-color-violet {
+    color: var(--clr-neutral-veryDarkViolet);
+}
 
-Weights: 500 */
-
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
 
 .hide {
     display:none
 }
-.vib {
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font:inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-size: var(--fs-18);
+    font-family: var(--ff-primary);
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+svg {
+    max-width: 100%;
     display: block;
+}
+
+/*reduce animation to almost nothing if they got reduce motion on*/
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================================  */
+
+/* BG image  */
+@media (min-width: 376px) {
+    .bg-main {
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+    }
+    .bg-sm {
+        display: none;
+    }
+}
+@media (max-width: 376px) {
+    .bg-main {
+        display: none;
+    }
+    .bg-sm {
+        width: 135%;
+        z-index: -1;
+        position: absolute;
+    }
+}
+main {
+    /* position: relative; */
+    --max-width: 100rem;
+    --padding: 1rem;
+    width: min(var(--max-width), 100% - (var(--padding) *2));
+    margin-inline: auto;
+    position: relative;
+    }
+
+
+
+/* card display  */
+.cards {
+    margin: auto;
+    position: relative;
+}
+.card-front,
+.card-back {
+    position: absolute;
+    /* border: 1px solid springgreen; */
+}
+.abs {
+    position: absolute;
+    color: var(--clr-neutral-white);
+}
+.card-logo {
+    top: 12%;
+    left: 7%;
+}
+.card-image-number {
+    top: 50%;
+    left: 7%;
+
+}
+.card-image-name {
+    bottom: 12%;
+    left: 7%;
+}
+.card-image-date {
+    display: flex;
+    bottom: 12%;
+    right: 10%;
+}
+.card-image-cvc {
+    top: 44%;
+    right: 15%;
+}
+
+@media (min-width: 376px) {
+    .card-back {
+        top: 50vh;
+        left: 10vw;
+    }
+    .card-front {
+        top: 10vh;
+        left: 5vw;
+    }
+    .card-image-number {
+        font-size: 2.1rem;
+    }
+}
+@media (max-width: 376px) {
+    .card-front {
+        top: 7rem;
+        z-index: 1;
+        width: 85%;
+    }
+    .card-back {
+        width: 85%;
+        right: 0;
+        top: 1.5rem;
+    }
+    .card-image-name,
+    .card-image-date,
+    .card-image-cvc {
+        font-size: .7rem;
+    }
+    .card-image-number {
+        font-size: 1.365rem;
+    }
+    .card-logo {
+        width: 3.5rem;
+    }
+    .formSection {
+        position: absolute;
+        top: 19em;
+        font-size: 1rem;
+    }
+
+    label, legend {
+        font-size: 0.875rem;
+    }
+    
+
+}
+
+ /* form layout  */
+@media (min-width: 376px) {
+    #form {
+        /* width: 60%; */
+        /* border: 1px solid sienna; */
+        top: 50%;
+        position: relative;
+    }
+    .formSection,
+    #thank-you{
+        width: 50%;
+        height: 50vh;
+        float: right;
+        margin: auto;
+        padding-right: 15%;
+        padding-left: 5%;
+    }
+    #thank-you {
+        top: 15em;
+    }
+}
+@media (max-width: 376px) {
+    #thank-you {
+        top: 18em;
+    }
+}
+
+/* input box  */
+input {
+    border-radius: 5px;
+    border: 1px solid var(--clr-neutral-lightGrayishViolet);
+    width: 100%;
+    padding: .5rem;
+    margin-top: .5rem;
+}
+fieldset {
+    border: 0;
+}
+
+#form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 1.5rem;
+    padding: 1rem;
+}
+/* grid-row-start grid-column-start grid-row-end grid-column-end */
+.cardholderName {
+    grid-area: 1 / 1 / 2 / 3;
+
+}
+.cardNumber {
+    grid-area: 2 / 1 / 3 / 3;
+}
+.submit-btn {
+    grid-area: 4 / 1 / 5 / 3;
+}
+.form-btn,
+#continueBtn {
+    width: 100%;
+    background-color: var(--clr-neutral-veryDarkViolet);
+    color: var(--clr-neutral-white);
+    padding: 1rem;
+    border: 1px solid var(--clr-neutral-veryDarkViolet);
+    border-radius: 5px;
+}
+.form-btn:hover,
+#continueBtn:hover {
+    background: var(--clr-primary-gradient);
+    border-color: var(--clr-primary-gradient);
+}
+#month,
+#year {
+    width: 40%;
+}
+
+
+ /* error  */
+ input.error {
+    border-color: var(--clr-primary-red);
+    padding: .5rem;
+    font-size: var(--fs-18);
+}
+.error {
+    color: var(--clr-primary-red);
+    /* font-size: 12px; it change the front size of the input too without the id*/
+    font-size: 12px;
+}
+
+input:focus-visible {
+    outline-color: var(--clr-neutral-veryDarkViolet);
+
+}
+
+@media (min-width: 376px) {
+    #cardholderName,
+    #cardNumber,
+    #month,
+    #year,
+    #cvc {
+        font-size: var(--fs-18);
+    }
+}
+@media (max-width: 376px) {
+    #cardholderName,
+    #cardNumber,
+    #month,
+    #year,
+    #cvc {
+        font-size: 0.875rem;
+    }
+}
+
+
+/* Thank you  */
+#thank-you {
+    position: relative;
+    text-align: center;
+}
+h1 {
+    font-size: 2.1rem;
+    line-height: 1.5rem;
+    margin-top: 1.5em;
+}
+p {
+    margin-block: 2em;
+}
+.thanks-img {
+    margin: auto;
 }
