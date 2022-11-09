@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <title>Interactive card details form</title>
+</head>
+
+<body>
+<img class="bg-main" src="images/bg-main-desktop.png" alt="">
+<img class="bg-sm" src="images/bg-main-mobile.png" alt="">
+<main>
+  <section>
+    <div class="cards">
+      <div class="card-front">
+        <img src="images/bg-card-front.png" alt="">
+        <img class="abs card-logo" src="images/card-logo.svg" alt="">
+        <div class="abs card-image-number">0000 0000 0000 0000</div>
+        <div class="abs uppercase card-image-name">Jane Appleseed</div>
+        <div class="abs card-image-date">
+          <div class="card-image-month">00</div>
+          <span>/</span>
+          <div class="card-image-year">00</div>
+        </div>
+      </div>
+      <div class="card-back">
+        <img src="images/bg-card-back.png" alt="">
+        <div class="abs card-image-cvc">000</div>
+      </div>
+    </div>
+  
+  </section>
+  
+  <section class="formSection">
+    <form id="form" method="post" action="/">
+      <div class="cardholderName">
+        <label class="uppercase text-color-violet" for="cardholderName ">Cardholder Name</label>
+        <input type="text" name="cardholderName" id="cardholderName" placeholder="e.g. Jane Appleseed">
+      </div>
+      <div class="cardNumber">
+        <label class="uppercase text-color-violet" for="cardNumber ">Card Number</label>
+        <input type="text" name="cardNumber" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000">
+      </div>
+      <div class="date">
+        <fieldset>
+          <legend for="" class="uppercase text-color-violet">Exp. Date (MM/YY)</legend>
+          <input type="text" name="month" id="month" placeholder="MM"/>
+          <input type="text" name="year" id="year" placeholder="YY">
+        </fieldset> 
+      </div>
+      <div class="cvc">
+        <label class="uppercase text-color-violet" for="cvc ">CVC</label>
+        <input type="text" name="cvc" id="cvc" placeholder="e.g. 123">
+      </div>
+      <div class="submit-btn">
+        <button class="form-btn" type="submit" value="Submit">Confirm</button>
+      </div>
+    </form>
+  </section>
+  <section id="thank-you">
+    <div class="hide thanksClass">
+      <img class="thanks-img" src="images/icon-complete.svg" alt="">
+      <h1 class="uppercase">Thank you!</h1>
+      <p>We've added your card details</p>
+  
+        <button id="continueBtn">Continue</button>
+
+    </div>
+  </section>  
+
+  
+  <!-- Scripts  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script src="app.js"></script>
+  <script src="vaild.js"></script>
+</body>
+</html>
