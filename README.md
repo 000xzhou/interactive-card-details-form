@@ -17,4 +17,4 @@ the rest are just extras for me to try out server stuff
 I might come back to this when i learn more about server stuff
 =======
 still working on it
->>>>>>> 73b751360be257878b43137fdb347798a8cc9ea2
+
