@@ -34,8 +34,9 @@ $().ready(()=> {
         cvcImageNumber.text(number)
     })
 
+    
     // form validation
-    formID.validate({
+    var validator = formID.validate({
         rules: {
             cardholderName: 'required',
             cardNumber: {
@@ -85,18 +86,26 @@ $().ready(()=> {
             }
         },
         submitHandler: function(form) {
-            // round around way because i don't know servers much
+            // when submit is press do the below
             formSection.addClass("hide")
             $('.thanksClass').removeClass("hide")
-            $('#continueBtn').on('click', ()=> {
-                form.submit()
-            })
-            
-            // 
+            destory()
         }
+        
     })
 
+    function destory() {
+        $('#continueBtn').on('click', ()=> {  
+            $('.thanksClass').addClass("hide")
+            form.submit()
+            formSection.removeClass("hide")
+            validator.destroy();
+            
+        })
+    }
 })
+
+
 
 // 
 // 
@@ -105,4 +114,3 @@ $().ready(()=> {
 // https://html.form.guide/jquery/validation-using-jquery-examples/
 // jQuery got their own validation
 
- 
