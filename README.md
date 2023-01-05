@@ -78,5 +78,5 @@ And I feel like my css needs work. I know there was better ways to move things a
 ## Author
 
 - Website - [XZ](https://www.your-site.com)
-- Frontend Mentor - [@HazukiMik](https://www.frontendmentor.io/profile/HazukiMiki)
+- Frontend Mentor - [@000xzhou](https://www.frontendmentor.io/profile/000xzhou)
 
